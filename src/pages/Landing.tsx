@@ -4,10 +4,6 @@ import { Youtube, ExternalLink } from "lucide-react";
 import heroImage from "@/assets/hero-brain.jpg";
 import { useNavigate } from "react-router-dom";
 
-interface LandingProps {
-  onNavigateToLogin: () => void;
-  onNavigateToSignup: () => void;
-}
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -84,6 +80,49 @@ export default function Landing() {
         </div>
       </section>
       
+      {/* 100-Day Journey Section */}
+      <section className="py-20 bg-gradient-hero">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+              <span className="text-sm font-medium text-foreground">🚀 100-Day Development Journey</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Day 15 of 100: Building in Public
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Follow my journey as I build and share innovative projects, one day at a time
+            </p>
+          </div>
+          
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-sm font-medium text-muted-foreground">Progress</span>
+                <span className="text-sm font-medium text-foreground">15/100 Days</span>
+              </div>
+              <div className="w-full bg-white/20 rounded-full h-3 mb-6">
+                <div className="bg-gradient-primary h-3 rounded-full transition-all duration-500" style={{width: '15%'}}></div>
+              </div>
+              <div className="grid md:grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-foreground">15</div>
+                  <div className="text-sm text-muted-foreground">Days Completed</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-foreground">85</div>
+                  <div className="text-sm text-muted-foreground">Days Remaining</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-foreground">3</div>
+                  <div className="text-sm text-muted-foreground">Major Projects</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,6 +174,56 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      {/* Tech Stack Section */}
+      <section className="py-20 bg-gradient-hero">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Built with Modern Tech
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Cutting-edge technologies for optimal performance and user experience
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="w-12 h-12 bg-gradient-primary rounded-xl mx-auto mb-4 flex items-center justify-center">
+                <span className="text-white font-bold text-lg">⚛️</span>
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">React</h3>
+              <p className="text-sm text-muted-foreground">Modern UI Library</p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="w-12 h-12 bg-gradient-primary rounded-xl mx-auto mb-4 flex items-center justify-center">
+                <span className="text-white font-bold text-lg">🎨</span>
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">Tailwind</h3>
+              <p className="text-sm text-muted-foreground">Utility-first CSS</p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="w-12 h-12 bg-gradient-primary rounded-xl mx-auto mb-4 flex items-center justify-center">
+                <span className="text-white font-bold text-lg">🤖</span>
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">AI</h3>
+              <p className="text-sm text-muted-foreground">Smart Insights</p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="w-12 h-12 bg-gradient-primary rounded-xl mx-auto mb-4 flex items-center justify-center">
+                <span className="text-white font-bold text-lg">⚡</span>
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">Vite</h3>
+              <p className="text-sm text-muted-foreground">Lightning Fast</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
       
       {/* Footer Section */}
       <footer className="py-12 bg-gradient-hero border-t border-white/10">
