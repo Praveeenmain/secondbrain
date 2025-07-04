@@ -2,13 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Youtube, ExternalLink } from "lucide-react";
 import heroImage from "@/assets/hero-brain.jpg";
+import { useNavigate } from "react-router-dom";
 
 interface LandingProps {
   onNavigateToLogin: () => void;
   onNavigateToSignup: () => void;
 }
 
-export default function Landing({ onNavigateToLogin, onNavigateToSignup }: LandingProps) {
+export default function Landing() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-hero">
       <Navigation />
@@ -34,7 +36,7 @@ export default function Landing({ onNavigateToLogin, onNavigateToSignup }: Landi
                 <Button 
                   variant="hero" 
                   size="lg" 
-                  onClick={onNavigateToSignup}
+                  onClick={() => navigate('/signup')}
                   className="text-lg px-8 py-4"
                 >
                   Start Building Free
@@ -42,7 +44,7 @@ export default function Landing({ onNavigateToLogin, onNavigateToSignup }: Landi
                 <Button 
                   variant="glass" 
                   size="lg" 
-                  onClick={onNavigateToLogin}
+                  onClick={() => navigate('/login')}
                   className="text-lg px-8 py-4"
                 >
                   Log In

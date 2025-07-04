@@ -15,24 +15,38 @@ const Index = () => {
   const [currentPage, setCurrentPage] = useState<Page>('landing');
   const [user, setUser] = useState<User | null>(null);
 
-  const handleLogin = (email: string, password: string) => {
-    // Mock login - in real app this would make an API call
-    const mockUser = {
-      name: email.split('@')[0].charAt(0).toUpperCase() + email.split('@')[0].slice(1),
-      email: email
-    };
-    setUser(mockUser);
-    setCurrentPage('dashboard');
+  const handleLogin = async (email: string, password: string) => {
+    try {
+      const res = await fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed');
+      localStorage.setItem('token', data.token);
+      setUser(data.user);
+      setCurrentPage('dashboard');
+    } catch (err: any) {
+      alert(err.message);
+    }
   };
 
-  const handleSignup = (name: string, email: string, password: string) => {
-    // Mock signup - in real app this would make an API call
-    const newUser = {
-      name: name,
-      email: email
-    };
-    setUser(newUser);
-    setCurrentPage('dashboard');
+  const handleSignup = async (name: string, email: string, password: string) => {
+    try {
+      const res = await fetch('http://localhost:3000/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Signup failed');
+      localStorage.setItem('token', data.token);
+      setUser(data.user);
+      setCurrentPage('dashboard');
+    } catch (err: any) {
+      alert(err.message);
+    }
   };
 
   const handleLogout = () => {

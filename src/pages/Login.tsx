@@ -5,18 +5,14 @@ import { Label } from "@/components/ui/label";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Navigation } from "@/components/Navigation";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
-interface LoginProps {
-  onLogin: (email: string, password: string) => void;
-  onNavigateToSignup: () => void;
-  onNavigateToLanding: () => void;
-}
-
-export default function Login({ onLogin, onNavigateToSignup, onNavigateToLanding }: LoginProps) {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,17 +29,23 @@ export default function Login({ onLogin, onNavigateToSignup, onNavigateToLanding
     setIsLoading(true);
     
     try {
-      // Simulate login process
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      onLogin(email, password);
+      const res = await fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed');
+      localStorage.setItem('token', data.token);
       toast({
         title: "Welcome back!",
         description: "You've successfully logged in.",
       });
-    } catch (error) {
+      navigate('/dashboard');
+    } catch (error: any) {
       toast({
         title: "Login failed",
-        description: "Please check your credentials and try again.",
+        description: error.message,
         variant: "destructive",
       });
     } finally {
@@ -109,7 +111,7 @@ export default function Login({ onLogin, onNavigateToSignup, onNavigateToLanding
               <p className="text-muted-foreground">
                 Don't have an account?{" "}
                 <button
-                  onClick={onNavigateToSignup}
+                  onClick={() => navigate('/signup')}
                   className="text-primary hover:underline font-medium"
                 >
                   Sign up free
@@ -119,7 +121,7 @@ export default function Login({ onLogin, onNavigateToSignup, onNavigateToLanding
             
             <div className="mt-4 text-center">
               <button
-                onClick={onNavigateToLanding}
+                onClick={() => navigate('/')}
                 className="text-muted-foreground hover:text-foreground transition-smooth text-sm"
               >
                 ← Back to home
