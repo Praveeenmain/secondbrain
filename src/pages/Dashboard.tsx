@@ -93,7 +93,7 @@ export default function Dashboard() {
     const fetchReflections = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:3000/api/reflections', {
+        const res = await fetch('https://secondbrain-vooh.onrender.com/api/reflections', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await res.json();
@@ -139,7 +139,7 @@ export default function Dashboard() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:3000/api/reflections', {
+      const res = await fetch('https://secondbrain-vooh.onrender.com/api/reflections', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -197,7 +197,7 @@ export default function Dashboard() {
         systemPrompt,
         history
       };
-      const res = await fetch('http://localhost:3000/api/chat', {
+      const res = await fetch('https://secondbrain-vooh.onrender.com/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -255,7 +255,7 @@ export default function Dashboard() {
   const handleDeleteReflection = async (id: string) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:3000/api/reflections/${id}`, {
+      const res = await fetch(`https://secondbrain-vooh.onrender.com/api/reflections/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });
