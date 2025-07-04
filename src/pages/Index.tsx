@@ -17,7 +17,7 @@ const Index = () => {
 
   const handleLogin = async (email: string, password: string) => {
     try {
-      const res = await fetch('https://secondbrain-vooh.onrender.com/api/login', {
+      const res = await fetch('https://secondbrainbackend-yvrs.onrender.com/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -34,7 +34,7 @@ const Index = () => {
 
   const handleSignup = async (name: string, email: string, password: string) => {
     try {
-      const res = await fetch('https://secondbrain-vooh.onrender.com/api/signup', {
+      const res = await fetch('https://secondbrainbackend-yvrs.onrender.com/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),

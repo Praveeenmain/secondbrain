@@ -75,7 +75,7 @@ export function Navigation({ user, onLogout }: NavigationProps) {
                 </div>
               ) : (
                 <div className="flex flex-col space-y-2">
-                  <Button variant="ghost" className="w-full">Log In</Button>
+          
                   <Button variant="hero" className="w-full">Sign Up Free</Button>
                 </div>
               )}

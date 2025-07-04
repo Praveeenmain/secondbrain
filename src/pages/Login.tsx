@@ -29,7 +29,7 @@ export default function Login() {
     setIsLoading(true);
     
     try {
-      const res = await fetch('https://secondbrain-vooh.onrender.com/api/login', {
+      const res = await fetch('https://secondbrainbackend-yvrs.onrender.com/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

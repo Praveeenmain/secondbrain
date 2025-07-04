@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 
 interface SignupProps {
   onSignup: (name: string, email: string, password: string) => void;
-  onNavigateToLogin: () => void;
+  onNavigateToLogin: (path: '/login') => void;
   onNavigateToLanding: () => void;
 }
 
@@ -149,17 +149,7 @@ export default function Signup({ onSignup, onNavigateToLogin, onNavigateToLandin
               </Button>
             </form>
             
-            <div className="mt-6 text-center">
-              <p className="text-muted-foreground">
-                Already have an account?{" "}
-                <button
-                  onClick={onNavigateToLogin}
-                  className="text-primary hover:underline font-medium"
-                >
-                  Sign in
-                </button>
-              </p>
-            </div>
+           
             
             <div className="mt-4 text-center">
               <button
