@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
+import { Youtube, ExternalLink } from "lucide-react";
 import heroImage from "@/assets/hero-brain.jpg";
 
 interface LandingProps {
@@ -132,6 +133,37 @@ export default function Landing({ onNavigateToLogin, onNavigateToSignup }: Landi
           </div>
         </div>
       </section>
+      
+      {/* Footer Section */}
+      <footer className="py-12 bg-gradient-hero border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h3 className="text-xl font-semibold text-foreground mb-6">
+              Connect with the Creator
+            </h3>
+            <div className="flex justify-center space-x-6">
+              <a
+                href="https://www.youtube.com/@praveenunfiltered-11"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-foreground hover:bg-white/20 transition-smooth border border-white/20"
+              >
+                <Youtube className="w-5 h-5 text-red-500" />
+                <span>YouTube Channel</span>
+              </a>
+              <a
+                href="https://www.praveenn.site/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-foreground hover:bg-white/20 transition-smooth border border-white/20"
+              >
+                <ExternalLink className="w-5 h-5" />
+                <span>Portfolio</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
